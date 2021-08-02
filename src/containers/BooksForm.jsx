@@ -12,17 +12,20 @@ class BooksForm extends Component {
         category: '',
       },
     };
+
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleChange = (e) => {
+  handleChange(e) {
     const { value, name } = e.target;
     const { book } = this.state;
     const newbook = { ...book };
     newbook[name] = value;
     this.setState({ book: newbook });
-  };
+  }
 
-  handleSubmit = (e) => {
+  handleSubmit(e) {
     e.preventDefault();
     const { book } = this.state;
     const { createBook } = this.props;
@@ -33,7 +36,7 @@ class BooksForm extends Component {
     books.push(newBook);
     localStorage.setItem('books', JSON.stringify(books));
     this.setState({ book: { title: '', category: '' } });
-  };
+  }
 
   render() {
     const categories = [

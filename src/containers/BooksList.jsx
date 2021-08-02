@@ -1,40 +1,47 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Book from '../components/Book';
+import { removeBook } from '../actions';
 
-class BooksList extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
-
-  render() {
-    const { books } = this.props;
-    return (
-      <table>
-        <thead>
-          <tr>
-            <th>BookID</th>
-            <th>Title</th>
-            <th>Category</th>
-          </tr>
-        </thead>
-        <tbody>
-          {books.map((book) => (
-            <Book
-              key={book.id}
-              book={book}
-            />
-          ))}
-        </tbody>
-      </table>
-    );
-  }
-}
+const BooksList = (props) => {
+  const handleRemoveBook = (book) => {
+    const { removeBook } = props;
+    removeBook(book);
+    let books = JSON.parse(localStorage.getItem('books'));
+    books = books.filter((b) => b.id !== book.id);
+    localStorage.setItem('books', JSON.stringify(books));
+  };
+  const { books } = props;
+  return (
+    <table>
+      <thead>
+        <tr>
+          <th>BookID</th>
+          <th>Title</th>
+          <th>Category</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        {books.map((book) => (
+          <Book
+            key={book.id}
+            book={book}
+            onRemoveBook={handleRemoveBook}
+          />
+        ))}
+      </tbody>
+    </table>
+  );
+};
 
 const mapStateToProps = (state) => ({
   books: state.books,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  removeBook: (book) => dispatch(removeBook(book)),
 });
 
 BooksList.defaultProps = {
@@ -49,5 +56,6 @@ BooksList.propTypes = {
       category: PropTypes.string.isRequired,
     }),
   ),
+  removeBook: PropTypes.func.isRequired,
 };
-export default connect(mapStateToProps, null)(BooksList);
+export default connect(mapStateToProps, mapDispatchToProps)(BooksList);
