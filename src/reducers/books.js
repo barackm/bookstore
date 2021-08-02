@@ -1,12 +1,11 @@
-const initState = {
-  list: [],
-  loading: false,
-};
+import { CREATE_BOOK } from '../actions';
 
-const books = (state = initState, action) => {
+const books = (books = [], action) => {
   switch (action.type) {
+    case CREATE_BOOK:
+      return [...books, action.payload];
     default:
-      return state;
+      return books;
   }
 };
 

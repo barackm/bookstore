@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import Book from '../components/Book';
 
 class BooksList extends Component {
@@ -9,17 +10,46 @@ class BooksList extends Component {
   }
 
   render() {
+    const { books } = this.props;
     return (
       <table>
-        <tr>
-          <th>BookID</th>
-          <th>Title</th>
-          <th>Category</th>
-        </tr>
-        <Book book={{ id: 1, title: 'First world war', category: 'History' }} />
+        <thead>
+          <tr>
+            <th>BookID</th>
+            <th>Title</th>
+            <th>Category</th>
+          </tr>
+        </thead>
+        <tbody>
+          {books.map((book) => (
+            <Book
+              key={book.id}
+              book={book}
+            />
+          ))}
+        </tbody>
       </table>
     );
   }
 }
 
-export default connect()(BooksList);
+const mapStateToProps = (state) => ({
+  books: state.books,
+});
+
+const mapDispatchToProps = () => ({});
+
+BooksList.defaultProps = {
+  books: [],
+};
+
+BooksList.propTypes = {
+  books: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      title: PropTypes.string.isRequired,
+      category: PropTypes.string.isRequired,
+    }),
+  ),
+};
+export default connect(mapStateToProps, mapDispatchToProps)(BooksList);
