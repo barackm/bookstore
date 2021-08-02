@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import Book from '../components/Book';
 
 class BooksList extends Component {
@@ -15,10 +16,10 @@ class BooksList extends Component {
           <th>Title</th>
           <th>Category</th>
         </tr>
-        <Book />
+        <Book book={{ id: 1, title: 'First world war', category: 'History' }} />
       </table>
     );
   }
 }
 
-export default BooksList;
+export default connect()(BooksList);

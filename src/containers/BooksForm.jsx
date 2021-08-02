@@ -7,7 +7,15 @@ class BooksForm extends Component {
   }
 
   render() {
-    return <h1>Books form</h1>;
+    const categories = ['Action', 'Biography', 'History', 'Horror', 'Kids', 'Learning', 'Sci-Fi'];
+    return (
+      <form>
+        <input type="text" placeholder="title" />
+        <select name="category" id="category">
+          {categories.map((categ) => (<option value={categ} key={categ}>{categ}</option>))}
+        </select>
+      </form>
+    );
   }
 }
 
