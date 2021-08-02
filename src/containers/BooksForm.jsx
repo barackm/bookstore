@@ -29,6 +29,9 @@ class BooksForm extends Component {
     const newBook = book;
     newBook.id = Math.floor(Math.random() * 101);
     createBook(newBook);
+    const books = JSON.parse(localStorage.getItem('books'));
+    books.push(newBook);
+    localStorage.setItem('books', JSON.stringify(books));
     this.setState({ book: { title: '', category: '' } });
   };
 
