@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Book from '../components/Book';
 
 class BooksList extends Component {
   constructor(props) {
@@ -10,20 +11,11 @@ class BooksList extends Component {
     return (
       <table>
         <tr>
-          <th>Firstname</th>
-          <th>Lastname</th>
-          <th>Age</th>
+          <th>BookID</th>
+          <th>Title</th>
+          <th>Category</th>
         </tr>
-        <tr>
-          <td>Jill</td>
-          <td>Smith</td>
-          <td>50</td>
-        </tr>
-        <tr>
-          <td>Eve</td>
-          <td>Jackson</td>
-          <td>94</td>
-        </tr>
+        <Book />
       </table>
     );
   }

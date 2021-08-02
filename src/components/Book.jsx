@@ -1,4 +1,10 @@
 import React from 'react';
 
-const BookDetail = () => <h1> Book Details </h1>;
-export default BookDetail;
+const Book = () => (
+  <tr>
+    <td>1</td>
+    <td>Second world war</td>
+    <td>History</td>
+  </tr>
+);
+export default Book;
