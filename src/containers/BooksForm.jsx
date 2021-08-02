@@ -26,6 +26,7 @@ class BooksForm extends Component {
             </option>
           ))}
         </select>
+        <button type="submit">Add a Book</button>
       </form>
     );
   }
