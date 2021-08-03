@@ -27,6 +27,7 @@ const BooksList = (props) => {
 
   const renderFilteredBooks = () => {
     const { books, filter } = props;
+    if (filter === 'All') return books;
     return books.filter((book) => (filter ? book.category === filter : book));
   };
 
