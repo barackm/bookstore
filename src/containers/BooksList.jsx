@@ -1,10 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Book from '../components/Book';
 import { removeBook } from '../actions';
+import CategoryFilter from '../components/CategoryFilter';
 
 const BooksList = (props) => {
+  const [filter, setFilter] = useState('All');
+  const handleFilterChange = (e) => {
+    setFilter(e.target.value);
+  };
   const handleRemoveBook = (book) => {
     const { removeBook } = props;
     removeBook(book);
@@ -14,25 +19,24 @@ const BooksList = (props) => {
   };
   const { books } = props;
   return (
-    <table>
-      <thead>
-        <tr>
-          <th>BookID</th>
-          <th>Title</th>
-          <th>Category</th>
-          <th>Action</th>
-        </tr>
-      </thead>
-      <tbody>
-        {books.map((book) => (
-          <Book
-            key={book.id}
-            book={book}
-            onRemoveBook={handleRemoveBook}
-          />
-        ))}
-      </tbody>
-    </table>
+    <div>
+      <CategoryFilter filter={filter} onChangeFilter={handleFilterChange} />
+      <table>
+        <thead>
+          <tr>
+            <th>BookID</th>
+            <th>Title</th>
+            <th>Category</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          {books.map((book) => (
+            <Book key={book.id} book={book} onRemoveBook={handleRemoveBook} />
+          ))}
+        </tbody>
+      </table>
+    </div>
   );
 };
 
