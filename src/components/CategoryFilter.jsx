@@ -14,7 +14,7 @@ const CategoryFilter = ({ onChangeFilter, filter }) => {
   ];
 
   return (
-    <div className="filter-book flex-center">
+    <div className="filter-book d-flex flex-center">
       <select
         name="filter"
         value={filter}

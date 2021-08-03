@@ -54,7 +54,7 @@ class BooksForm extends Component {
 
     return (
       <div className="form-main-container">
-        <div className="form-header flex-center">
+        <div className="form-header d-flex flex-center">
           <h1>ADD NEW BOOK</h1>
         </div>
         <form className="d-flex" onSubmit={this.handleSubmit}>

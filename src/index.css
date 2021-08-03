@@ -13,6 +13,7 @@
   --animation-duration: 2s;
   --loader-initial-scale: 0.1;
   --warm-grey: #888;
+  --font-weight: 300;
 }
 
 body {
@@ -68,7 +69,6 @@ code {
 }
 
 .flex-center {
-  display: flex;
   justify-content: center;
   align-items: center;
 }
@@ -106,7 +106,7 @@ code {
   color: var(--black-two);
   font-size: 0.875rem;
   opacity: 0.5;
-  font-weight: 300;
+  font-weight: var(--font-weight);
 }
 
 .chapter-details .chapter-name {
@@ -139,7 +139,7 @@ code {
   font-size: 1.2rem;
 }
 
-.App {
+.app {
   background-color: var(--bg-color);
   min-height: 100vh;
 }
@@ -188,7 +188,7 @@ span {
 .book__details__titles span {
   color: var(--primary-color);
   font-size: 0.875rem;
-  font-weight: 300;
+  font-weight: var(--font-weight);
 }
 
 .books-actions-btn {
@@ -198,7 +198,7 @@ span {
 .books-actions-btn ul a {
   color: var(--primary-color);
   font-size: 0.875rem;
-  font-weight: 300;
+  font-weight: var(--font-weight);
   padding: 0.2rem 0.7rem;
   border-right: var(--border);
 }

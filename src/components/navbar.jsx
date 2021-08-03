@@ -3,8 +3,8 @@ import { IconContext } from 'react-icons';
 import { ImUser } from 'react-icons/im';
 
 const Navbar = () => (
-  <nav className="d-flex flex-center mainNav">
-    <div className="flex-center links-container">
+  <nav className="d-flex d-flex flex-center mainNav">
+    <div className="d-flex flex-center links-container">
       <a href="#home" className="logo">BookStore CMS</a>
       <ul className="d-flex nav-links">
         <li>
@@ -15,7 +15,7 @@ const Navbar = () => (
         </li>
       </ul>
     </div>
-    <a href="#home" className="user-icon flex-center">
+    <a href="#home" className="user-icon d-flex flex-center">
       <IconContext.Provider value={{ className: 'user-color' }}>
         <ImUser />
       </IconContext.Provider>
