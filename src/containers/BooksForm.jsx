@@ -53,24 +53,31 @@ class BooksForm extends Component {
     const { title, category } = book;
 
     return (
-      <form onSubmit={this.handleSubmit}>
-        <input
-          type="text"
-          name="title"
-          value={title}
-          placeholder="title"
-          required
-          onChange={this.handleChange}
-        />
-        <select name="category" value={category} id="category" required onChange={this.handleChange}>
-          {categories.map((categ) => (
-            <option value={categ} key={categ}>
-              {categ}
-            </option>
-          ))}
-        </select>
-        <button type="submit">Add a Book</button>
-      </form>
+      <div className="form-main-container">
+        <div className="form-header flex-center">
+          <h1>ADD NEW BOOK</h1>
+        </div>
+        <form className="d-flex" onSubmit={this.handleSubmit}>
+          <input
+            type="text"
+            name="title"
+            value={title}
+            placeholder="Book title"
+            required
+            onChange={this.handleChange}
+            className="book-input flex-unit"
+          />
+          <select name="category" value={category} className="category" required onChange={this.handleChange}>
+            <option value="">Category</option>
+            {categories.map((categ) => (
+              <option value={categ} key={categ}>
+                {categ}
+              </option>
+            ))}
+          </select>
+          <button type="submit" className="add-book">Add a Book</button>
+        </form>
+      </div>
     );
   }
 }

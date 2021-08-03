@@ -12,6 +12,7 @@
   --line-width: 5px;
   --animation-duration: 2s;
   --loader-initial-scale: 0.1;
+  --warm-grey: #888;
 }
 
 body {
@@ -239,4 +240,69 @@ span {
   font-size: 0.875rem;
   opacity: 0.5;
   font-weight: 200;
+}
+
+.filter-book {
+  margin-top: 3rem;
+  width: 100%;
+  justify-content: flex-start;
+  margin-bottom: 1rem;
+}
+
+.filter-book > select {
+  border: var(--border);
+  padding: 0.8rem;
+  background-color: var(--white);
+  width: 30%;
+  margin-left: 5rem;
+  border-radius: 0.2rem;
+}
+
+.form-main-container {
+  margin-left: 5rem;
+  margin-right: 5rem;
+  margin-top: 2rem;
+  padding-bottom: 5rem;
+  padding-top: 2rem;
+  border-top: var(--border);
+}
+
+.form-header {
+  justify-content: flex-start;
+  margin-bottom: 2rem;
+}
+
+.form-header h1 {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: var(--warm-grey);
+}
+
+.book-input {
+  border: var(--border);
+  padding: 0.8rem;
+  background-color: var(--white);
+  border-radius: 0.2rem;
+}
+
+.category {
+  border: var(--border);
+  padding: 0.8rem;
+  background-color: var(--white);
+  margin: 0 2rem;
+  width: 25%;
+  border-radius: 0.2rem;
+}
+
+.add-book {
+  cursor: pointer;
+  background-color: var(--primary-color);
+  border-radius: 0.2rem;
+  border: none;
+  padding: 0.8rem;
+  color: var(--white);
+  width: 15%;
+  font-size: 0.813rem;
+  text-transform: uppercase;
 }

@@ -14,19 +14,21 @@ const CategoryFilter = ({ onChangeFilter, filter }) => {
   ];
 
   return (
-    <select
-      name="filter"
-      value={filter}
-      id="filter"
-      required
-      onChange={onChangeFilter}
-    >
-      {categories.map((categ) => (
-        <option value={categ} key={categ}>
-          {categ}
-        </option>
-      ))}
-    </select>
+    <div className="filter-book flex-center">
+      <select
+        name="filter"
+        value={filter}
+        id="filter"
+        required
+        onChange={onChangeFilter}
+      >
+        {categories.map((categ) => (
+          <option value={categ} key={categ}>
+            {categ}
+          </option>
+        ))}
+      </select>
+    </div>
   );
 };
 
