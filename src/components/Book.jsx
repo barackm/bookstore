@@ -2,16 +2,36 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const Book = ({ book, onRemoveBook }) => (
-  <tr>
-    <td>{book.id}</td>
-    <td>{book.title}</td>
-    <td>{book.category}</td>
-    <td>
-      <button type="button" onClick={() => onRemoveBook(book)}>
-        Delete
-      </button>
-    </td>
-  </tr>
+  <div className="book-item-container flex-center">
+    <div className="book__details flex-unit d-flex flex-column">
+      <div className="book__details__titles d-flex flex-column">
+        <h4>{book.category}</h4>
+        <h2>{book.title}</h2>
+        <span>Suzanne Collins</span>
+      </div>
+      <div className="books-actions-btn">
+        <ul>
+          <a href="#f">Comments</a>
+          <a href="#f" onClick={() => onRemoveBook(book)}>Remove</a>
+          <a href="#f">Edit</a>
+        </ul>
+      </div>
+    </div>
+    <div className="book-progress-details flex-unit flex-center">
+      <div className="progress-info d-flex">
+        <div className="graph-gray" />
+        <div className="progress-data flex-center flex-column">
+          <h2>64%</h2>
+          <span>Completed</span>
+        </div>
+      </div>
+      <div className="chapter-details flex-center flex-column">
+        <h3>CURRENT CHAPTER</h3>
+        <span className="chapter-name">Chapter 1</span>
+        <a href="#f">UPDATE PROGRESS</a>
+      </div>
+    </div>
+  </div>
 );
 
 Book.defaultProps = {

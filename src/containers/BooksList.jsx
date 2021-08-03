@@ -33,25 +33,12 @@ const BooksList = (props) => {
 
   const books = renderFilteredBooks();
   return (
-    <div>
+    <div className="book-wrapper">
       <CategoryFilter filter={filter} onChangeFilter={handleFilterChange} />
-      { books.length === 0 ? <h1>Sorry the books list is empty.</h1> : (
-        <table>
-          <thead>
-            <tr>
-              <th>BookID</th>
-              <th>Title</th>
-              <th>Category</th>
-              <th>Action</th>
-            </tr>
-          </thead>
-          <tbody>
-            {books.map((book) => (
-              <Book key={book.id} book={book} onRemoveBook={handleRemoveBook} />
-            ))}
-          </tbody>
-        </table>
-      )}
+      { books.length === 0 ? <h1>Sorry the books list is empty.</h1>
+        : books.map((book) => (
+          <Book key={book.id} book={book} onRemoveBook={handleRemoveBook} />
+        ))}
     </div>
   );
 };

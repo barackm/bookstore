@@ -2,6 +2,16 @@
   --border: 1px solid #e8e8e8;
   --primary-color: #0290ff;
   --black-two: #121212;
+  --bg-color: #f5f6fa;
+  --white: #fff;
+  --light: rgba(0, 0, 0, 0.377);
+  --loader-width: 65px;
+  --loader-height: 65px;
+  --loader-color-primary: #0290ff;
+  --loader-color-secondary: #eee;
+  --line-width: 5px;
+  --animation-duration: 2s;
+  --loader-initial-scale: 0.1;
 }
 
 body {
@@ -38,6 +48,14 @@ ul {
   display: flex;
 }
 
+.flex-unit {
+  flex: 1;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
 code {
   font-family:
     source-code-pro,
@@ -56,11 +74,14 @@ code {
 
 .mainNav {
   width: 100%;
-  height: 3rem;
+  height: 2rem;
   padding: 1rem 0;
   background-color: #fff;
   border-bottom: var(--border);
   justify-content: space-between;
+  position: fixed;
+  left: 0;
+  right: 0;
 }
 
 .links-container {
@@ -73,6 +94,31 @@ code {
   height: 2.5rem;
   border-radius: 50%;
   border: var(--border);
+}
+
+.nav-links {
+  margin-left: 2rem;
+}
+
+.chapter-details h3 {
+  color: var(--black-two);
+  font-size: 0.875rem;
+  opacity: 0.5;
+  font-weight: 300;
+}
+
+.chapter-details .chapter-name {
+  font-size: 0.9rem;
+  margin-bottom: 0.2rem;
+}
+
+.chapter-details a {
+  background-color: var(--primary-color);
+  border-radius: 0.2rem;
+  padding: 0.5rem 1.5rem;
+  font-size: 0.7rem;
+  color: var(--white);
+  margin-top: 0.8rem;
 }
 
 .nav-links li a {
@@ -88,34 +134,109 @@ code {
 
 .user-color {
   color: var(--primary-color);
+  font-size: 1.2rem;
 }
 
-.books {
-  width: 3.688rem;
-  height: 1rem;
-  margin: 1.125rem 2.563rem 0.688rem 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  font-size: 0.813rem;
-  font-weight: normal;
-  font-stretch: normal;
-  font-style: normal;
+.App {
+  background-color: var(--bg-color);
+  min-height: 100vh;
+}
+
+.book-wrapper {
+  padding-top: 3rem;
+}
+
+.book-item-container {
+  border: var(--border);
+  margin: 0 5rem;
+  margin-bottom: 1rem;
+  padding: 1.2rem;
+  border-radius: 0.2rem;
+  background-color: var(--white);
+}
+
+.book__details {
+  align-items: flex-start;
+}
+
+.book__details__titles {
+  align-items: flex-start;
+}
+
+.book__details__titles > h4,
+h2,
+span {
+  margin: 0;
+}
+
+.book__details__titles h4 {
+  font-size: 0.875rem;
+  color: var(--light);
   line-height: normal;
-  letter-spacing: 1.9px;
-  color: #121212;
-  text-decoration: none;
+  font-weight: bold;
 }
 
-.categories {
-  width: 6.563rem;
-  height: 1rem;
-  margin: 1.125rem 41.5rem 0.688rem 2.563rem;
+.book__details__titles h2 {
+  color: var(--black-two);
+  font-size: 1.375rem;
+  line-height: 1.5;
+  font-weight: bold;
+}
+
+.book__details__titles span {
+  color: var(--primary-color);
+  font-size: 0.875rem;
+  font-weight: 300;
+}
+
+.books-actions-btn {
+  margin-top: 0.6rem;
+}
+
+.books-actions-btn ul a {
+  color: var(--primary-color);
+  font-size: 0.875rem;
+  font-weight: 300;
+  padding: 0.2rem 0.7rem;
+  border-right: var(--border);
+}
+
+.books-actions-btn ul a:nth-child(1) {
+  padding-left: 0;
+}
+
+.books-actions-btn ul a:last-child {
+  border: none;
+}
+
+.graph-gray {
+  box-sizing: border-box;
+  border: var(--line-width, 4px) solid var(--loader-color-secondary, #fff);
+  border-right-color: var(--loader-color-primary, #00f);
+  border-bottom-color: var(--loader-color-primary, #00f);
+  width: var(--loader-width, 100px);
+  height: var(--loader-height, 100px);
+  border-radius: 50%;
+}
+
+.progress-info {
+  padding-right: 4rem;
+  border-right: var(--border);
+}
+
+.chapter-details {
+  padding-left: 4rem;
+  align-items: flex-start;
+  justify-content: space-around;
+}
+
+.progress-data {
+  margin-left: 2rem;
+}
+
+.progress-data span {
+  color: var(--black-two);
+  font-size: 0.875rem;
   opacity: 0.5;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  font-size: 0.813rem;
-  font-weight: normal;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: normal;
-  letter-spacing: 1.9px;
-  color: #f5f6fa;
+  font-weight: 200;
 }
